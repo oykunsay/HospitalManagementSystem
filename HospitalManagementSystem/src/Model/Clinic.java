@@ -81,7 +81,6 @@ public class Clinic {
 				break;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return c;
