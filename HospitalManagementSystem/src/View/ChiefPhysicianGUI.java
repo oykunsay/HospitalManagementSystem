@@ -1,8 +1,6 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
@@ -12,16 +10,12 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-
 import Model.*;
-
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
-
 import java.awt.Font;
 import java.awt.Point;
 import java.sql.SQLException;
-
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import java.awt.Color;
@@ -29,12 +23,10 @@ import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import Helper.*;
 import javax.swing.JComboBox;
@@ -58,9 +50,7 @@ public class ChiefPhysicianGUI extends JFrame {
 	private JPopupMenu clinicMenu;
 	private JTable table_worker;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -74,10 +64,6 @@ public class ChiefPhysicianGUI extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 * @throws SQLException 
-	 */
 	public ChiefPhysicianGUI(final ChiefPhysician chiefphysician) throws SQLException {
 		setTitle("Hospital Management System");
 		
