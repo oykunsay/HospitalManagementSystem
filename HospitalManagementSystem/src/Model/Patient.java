@@ -95,10 +95,7 @@ public class Patient extends User{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		if(key== 1)
-			return true;
-		else 
-			return false;
+		boolean res = (key==1) ? (true) : (false);
 	
 	}
 	
