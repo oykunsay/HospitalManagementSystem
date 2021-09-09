@@ -1,12 +1,8 @@
 package View;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Helper.Helper;
 import Model.Patient;
 import java.awt.Color;
@@ -27,9 +23,6 @@ public class RegisterGUI extends JFrame {
 	private JPasswordField fld_pass;
 	private Patient patient = new Patient();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable(){
 			public void run() {
@@ -43,9 +36,7 @@ public class RegisterGUI extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public RegisterGUI() {
 		setResizable(false);
 		setTitle("Hospital Management System");
