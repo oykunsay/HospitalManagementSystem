@@ -1,25 +1,18 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
-
 import Model.Doctor;
-
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import com.toedter.calendar.JDateChooser;
-
 import Helper.Helper;
-
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
@@ -36,9 +29,6 @@ public class DoctorGUI extends JFrame {
 	private DefaultTableModel whourModel;
 	private Object[] whourData = null;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,10 +42,6 @@ public class DoctorGUI extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 * @throws SQLException 
-	 */
 	public DoctorGUI(final Doctor doctor) throws SQLException {
 		
 		whourModel = new DefaultTableModel();
