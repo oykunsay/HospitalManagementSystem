@@ -19,9 +19,9 @@ public class Clinic {
 	ResultSet rs = null;
 	PreparedStatement preparedStatement = null;
 	
-	public Clinic() {
-		
+	public Clinic() {	
 	}
+	
 	public Clinic(int id, String name) {
 		super();
 		this.id = id;
@@ -31,8 +31,8 @@ public class Clinic {
 	public ArrayList<User> getClinicDoctorList(int clinic_id) throws SQLException{
 		ArrayList<User> list = new ArrayList<>();
 		User obj;
+		Connection con = conn.connDb();
 		try {
-			Connection con = conn.connDb();
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT u.id,u.idno,u.password,u.name,u.type FROM worker w LEFT JOIN user u ON w.user_id = u.id WHERE clinic_id=" + clinic_id);
 			while(rs.next()) {
