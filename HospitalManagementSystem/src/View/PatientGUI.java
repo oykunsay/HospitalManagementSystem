@@ -1,31 +1,25 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
 import Helper.Helper;
 import Helper.Item;
 import Model.Appointment;
 import Model.Clinic;
 import Model.Patient;
 import Model.Whour;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
@@ -47,10 +41,7 @@ public class PatientGUI extends JFrame {
 	private DefaultTableModel appointModel;
 	private Object[] appointData = null;
 	private Appointment appoint = new Appointment();
-	
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,10 +55,6 @@ public class PatientGUI extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 * @throws SQLException 
-	 */
 	public PatientGUI(final Patient patient) throws SQLException {
 		
 		doctorModel = new DefaultTableModel();
