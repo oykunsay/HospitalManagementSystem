@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import Helper.DBConnection;
 
 public class Appointment {
-	private int id,doctorID,patientID;
+	private int id, doctorID, patientID;
 	private String doctorName, patientName, appDate;
-	
+
 	DBConnection conn = new DBConnection();
 	Statement st = null;
 	ResultSet rs = null;
 	PreparedStatement preparedStatement = null;
-	
+
 	public Appointment(int id, int doctorID, int patientID, String doctorName, String patientName, String appDate) {
 		super();
 		this.id = id;
@@ -27,18 +27,18 @@ public class Appointment {
 		this.patientName = patientName;
 		this.appDate = appDate;
 	}
-	
+
 	public Appointment() {
 	}
-	
-	public ArrayList<Appointment> getPatientList(int patient_id) throws SQLException{
+
+	public ArrayList<Appointment> getPatientList(int patient_id) throws SQLException {
 		ArrayList<Appointment> list = new ArrayList<>();
 		Appointment obj;
 		Connection con = conn.connDb();
 		try {
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM appointment WHERE patient_id = " + patient_id);
-			while(rs.next()) {
+			while (rs.next()) {
 				obj = new Appointment();
 				obj.setId(rs.getInt("id"));
 				obj.setDoctorID(rs.getInt("doctor_id"));
@@ -50,24 +50,23 @@ public class Appointment {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			st.close();
 			rs.close();
 			con.close();
 		}
-		
+
 		return list;
 	}
 
-	
-	public ArrayList<Appointment> getDoctorList(int doctor_id) throws SQLException{
+	public ArrayList<Appointment> getDoctorList(int doctor_id) throws SQLException {
 		ArrayList<Appointment> list = new ArrayList<>();
 		Appointment obj;
 		Connection con = conn.connDb();
 		try {
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM appointment WHERE docotor_id = " + doctor_id);
-			while(rs.next()) {
+			while (rs.next()) {
 				obj = new Appointment();
 				obj.setId(rs.getInt("id"));
 				obj.setDoctorID(rs.getInt("doctor_id"));
@@ -79,15 +78,15 @@ public class Appointment {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			st.close();
 			rs.close();
 			con.close();
 		}
-		
+
 		return list;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -135,7 +134,5 @@ public class Appointment {
 	public void setAppDate(String appDate) {
 		this.appDate = appDate;
 	}
-	
-	
-	
+
 }
