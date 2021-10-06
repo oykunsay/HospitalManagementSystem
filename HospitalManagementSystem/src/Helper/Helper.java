@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 public class Helper {
 	public static void showMsg(String str) {
 		String msg;
-		
-		switch(str) {
+
+		switch (str) {
 		case "fill":
 			msg = "Please fill all the blanks!";
 			break;
@@ -19,13 +19,13 @@ public class Helper {
 		default:
 			msg = str;
 		}
-		
+
 		JOptionPane.showMessageDialog(null, msg, "Message", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public static boolean confirm(String str) {
 		String msg;
-		switch(str){
+		switch (str) {
 		case "sure":
 			msg = "Do you want to continue?";
 			break;
@@ -33,12 +33,12 @@ public class Helper {
 			msg = str;
 			break;
 		}
-		
-		int res = JOptionPane.showConfirmDialog(null, msg,"ATTENTION!", JOptionPane.YES_NO_OPTION);
-		if(res == 0) {
+
+		int res = JOptionPane.showConfirmDialog(null, msg, "ATTENTION!", JOptionPane.YES_NO_OPTION);
+		if (res == 0) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-		}
+	}
 }
