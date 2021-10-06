@@ -12,12 +12,12 @@ import Helper.DBConnection;
 public class Whour {
 	private int id, doctor_id;
 	private String doctor_name, wdate, status;
-	
+
 	DBConnection conn = new DBConnection();
 	Statement st = null;
 	ResultSet rs = null;
 	PreparedStatement preparedStatement = null;
-	
+
 	public Whour(int id, int doctor_id, String doctor_name, String wdate, String status) {
 		this.id = id;
 		this.doctor_id = doctor_id;
@@ -27,8 +27,9 @@ public class Whour {
 	}
 
 	public Whour() {
-		
+
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -100,15 +101,15 @@ public class Whour {
 	public void setPreparedStatement(PreparedStatement preparedStatement) {
 		this.preparedStatement = preparedStatement;
 	}
-	
-	public ArrayList<Whour> getWhourList(int doctor_id) throws SQLException{
+
+	public ArrayList<Whour> getWhourList(int doctor_id) throws SQLException {
 		ArrayList<Whour> list = new ArrayList<>();
 		Whour obj;
 		try {
 			Connection con = conn.connDb();
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM whour WHERE status = 'a' AND doctor_id = " + doctor_id);
-			while(rs.next()) {
+			while (rs.next()) {
 				obj = new Whour();
 				obj.setId(rs.getInt("id"));
 				obj.setDoctor_id(rs.getInt("doctor_id"));
@@ -122,6 +123,5 @@ public class Whour {
 		}
 		return list;
 	}
-	
 
 }
