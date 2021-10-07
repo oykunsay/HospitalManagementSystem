@@ -32,8 +32,8 @@ public class Clinic {
 	public ArrayList<User> getClinicDoctorList(int clinicID) throws SQLException {
 		ArrayList<User> list = new ArrayList<>();
 		User obj;
+		Connection con = conn.connDb();
 		try {
-			Connection con = conn.connDb();
 			st = con.createStatement();
 			rs = st.executeQuery(
 					"SELECT u.id,u.idno,u.password,u.name,u.type FROM worker w LEFT JOIN user u ON w.user_id = u.id WHERE clinic_id="
@@ -45,6 +45,10 @@ public class Clinic {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		return list;
 	}
@@ -86,6 +90,10 @@ public class Clinic {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		return c;
 	}
@@ -102,6 +110,10 @@ public class Clinic {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
@@ -123,6 +135,10 @@ public class Clinic {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
@@ -145,6 +161,10 @@ public class Clinic {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
