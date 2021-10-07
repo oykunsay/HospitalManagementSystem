@@ -48,6 +48,10 @@ public class Patient extends User {
 			key = 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		if (key == 1)
 			return true;
@@ -73,6 +77,10 @@ public class Patient extends User {
 			key = 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		if (key == 1)
 			return true;
@@ -94,10 +102,13 @@ public class Patient extends User {
 			key = 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
-		boolean res = (key==1) ? (true) : (false);
+		boolean res = (key == 1) ? (true) : (false);
 		return res;
-
 	}
 
 }
