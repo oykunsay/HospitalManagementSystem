@@ -52,6 +52,10 @@ public class ChiefPhysician extends User {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		return list;
 	}
@@ -71,6 +75,10 @@ public class ChiefPhysician extends User {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
@@ -91,6 +99,10 @@ public class ChiefPhysician extends User {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
@@ -114,6 +126,10 @@ public class ChiefPhysician extends User {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
@@ -142,6 +158,10 @@ public class ChiefPhysician extends User {
 			key = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 
 		if (key)
