@@ -4,7 +4,7 @@ import Helper.DBConnection;
 
 public class User {
 	private int id;
-	String idno, password, name, type;
+	private String idno, password, name, type;
 	DBConnection conn = new DBConnection();
 
 	public User(int id, String idno, String password, String name, String type) {
