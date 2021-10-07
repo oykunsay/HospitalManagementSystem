@@ -120,6 +120,10 @@ public class Whour {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			st.close();
+			rs.close();
+			con.close();
 		}
 		return list;
 	}
