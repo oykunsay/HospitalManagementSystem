@@ -29,7 +29,7 @@ public class Clinic {
 		this.name = name;
 	}
 
-	public ArrayList<User> getClinicDoctorList(int clinicID) throws SQLException {
+	public ArrayList<User> getClinicDoctorList(int clinicId) throws SQLException {
 		ArrayList<User> list = new ArrayList<>();
 		User obj;
 		Connection con = conn.connDb();
@@ -37,7 +37,7 @@ public class Clinic {
 			st = con.createStatement();
 			rs = st.executeQuery(
 					"SELECT u.id,u.idno,u.password,u.name,u.type FROM worker w LEFT JOIN user u ON w.user_id = u.id WHERE clinic_id="
-							+ clinicID);
+							+ clinicId);
 			while (rs.next()) {
 				obj = new User(rs.getInt("u.id"), rs.getString("u.idno"), rs.getString("u.password"),
 						rs.getString("u.name"), rs.getString("u.type"));
