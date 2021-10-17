@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import Helper.DBConnection;
 
 public class Whour {
-	private int id, doctor_id;
-	private String doctor_name, wdate, status;
+	private int id, doctorId;
+	private String doctorName, wdate, status;
 
 	DBConnection conn = new DBConnection();
 	Statement st = null;
 	ResultSet rs = null;
 	PreparedStatement preparedStatement = null;
 
-	public Whour(int id, int doctor_id, String doctor_name, String wdate, String status) {
+	public Whour(int id, int doctorId, String doctorNme, String wdate, String status) {
 		this.id = id;
-		this.doctor_id = doctor_id;
-		this.doctor_name = doctor_name;
+		this.doctorId = doctorId;
+		this.doctorName = doctorName;
 		this.wdate = wdate;
 		this.status = status;
 	}
@@ -38,20 +38,20 @@ public class Whour {
 		this.id = id;
 	}
 
-	public int getDoctor_id() {
-		return doctor_id;
+	public int getDoctorId() {
+		return doctorId;
 	}
 
-	public void setDoctor_id(int doctor_id) {
-		this.doctor_id = doctor_id;
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
 	}
 
-	public String getDoctor_name() {
-		return doctor_name;
+	public String getDoctorName() {
+		return doctorName;
 	}
 
-	public void setDoctor_name(String doctor_name) {
-		this.doctor_name = doctor_name;
+	public void setDoctor_name(String doctorName) {
+		this.doctorName = doctorName;
 	}
 
 	public String getWdate() {
@@ -102,13 +102,13 @@ public class Whour {
 		this.preparedStatement = preparedStatement;
 	}
 
-	public ArrayList<Whour> getWhourList(int doctor_id) throws SQLException {
+	public ArrayList<Whour> getWhourList(int doctorId) throws SQLException {
 		ArrayList<Whour> list = new ArrayList<>();
 		Whour obj;
 		try {
 			Connection con = conn.connDb();
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM whour WHERE status = 'a' AND doctor_id = " + doctor_id);
+			rs = st.executeQuery("SELECT * FROM whour WHERE status = 'a' AND doctor_id = " + doctorId);
 			while (rs.next()) {
 				obj = new Whour();
 				obj.setId(rs.getInt("id"));
