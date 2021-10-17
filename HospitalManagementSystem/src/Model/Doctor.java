@@ -22,14 +22,14 @@ public class Doctor extends User {
 		super(id, idno, password, name, type);
 	}
 
-	public boolean addWhour(int doctor_id, String doctor_name, String wdate) throws SQLException {
+	public boolean addWhour(int doctorId, String doctorName, String wdate) throws SQLException {
 		int key = 0;
 		int count = 0;
 		String query = "INSERT INTO whour " + "(doctor_id, doctor_name, wdate) VALUES" + "(?,?,?)";
 
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM whour WHERE status='a' AND doctor_id = " + doctor_id + " AND wdate ='"
+			rs = st.executeQuery("SELECT * FROM whour WHERE status='a' AND doctor_id = " + doctorId + " AND wdate ='"
 					+ wdate + "'");
 
 			while (rs.next()) {
@@ -39,8 +39,8 @@ public class Doctor extends User {
 
 			if (count == 0) {
 				preparedStatement = con.prepareStatement(query);
-				preparedStatement.setInt(1, doctor_id);
-				preparedStatement.setString(2, doctor_name);
+				preparedStatement.setInt(1, doctorId);
+				preparedStatement.setString(2, doctorName);
 				preparedStatement.setString(3, wdate);
 				preparedStatement.executeUpdate();
 			}
@@ -54,12 +54,12 @@ public class Doctor extends User {
 			return false;
 	}
 
-	public ArrayList<Whour> getWhourList(int doctor_id) throws SQLException {
+	public ArrayList<Whour> getWhourList(int doctorId) throws SQLException {
 		ArrayList<Whour> list = new ArrayList<>();
 		Whour obj;
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM whour WHERE status ='a' AND doctor_id = " + doctor_id);
+			rs = st.executeQuery("SELECT * FROM whour WHERE status ='a' AND doctor_id = " + doctorId);
 			while (rs.next()) {
 				obj = new Whour();
 				obj.setId(rs.getInt("id"));
