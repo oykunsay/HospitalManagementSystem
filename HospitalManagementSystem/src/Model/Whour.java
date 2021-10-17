@@ -18,7 +18,7 @@ public class Whour {
 	ResultSet rs = null;
 	PreparedStatement preparedStatement = null;
 
-	public Whour(int id, int doctorId, String doctorNme, String wdate, String status) {
+	public Whour(int id, int doctorId, String doctorName, String wdate, String status) {
 		this.id = id;
 		this.doctorId = doctorId;
 		this.doctorName = doctorName;
@@ -50,7 +50,7 @@ public class Whour {
 		return doctorName;
 	}
 
-	public void setDoctor_name(String doctorName) {
+	public void setDoctorName(String doctorName) {
 		this.doctorName = doctorName;
 	}
 
