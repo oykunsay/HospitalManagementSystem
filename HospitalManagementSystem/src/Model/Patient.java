@@ -60,7 +60,7 @@ public class Patient extends User {
 
 	}
 
-	public boolean addAppointment(int doctor_id, int patient_id, String doctor_name, String patient_name,
+	public boolean addAppointment(int doctorId, int patientId, String doctorName, String patientName,
 			String appDate) throws SQLException {
 		int key = 0;
 		String query = "INSERT INTO appointment" + "(doctor_id,doctor_name, patient_id,patient_name,app_date) VALUES"
@@ -68,10 +68,10 @@ public class Patient extends User {
 
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setInt(1, doctor_id);
-			preparedStatement.setString(2, doctor_name);
-			preparedStatement.setInt(3, patient_id);
-			preparedStatement.setString(4, patient_name);
+			preparedStatement.setInt(1, doctorId);
+			preparedStatement.setString(2, doctorName);
+			preparedStatement.setInt(3, patientId);
+			preparedStatement.setString(4, patientName);
 			preparedStatement.setString(5, appDate);
 			preparedStatement.executeUpdate();
 			key = 1;
@@ -89,14 +89,14 @@ public class Patient extends User {
 
 	}
 
-	public boolean updateWhoursStatus(int doctor_id, String wdate) throws SQLException {
+	public boolean updateWhoursStatus(int doctorId, String wdate) throws SQLException {
 		int key = 0;
 		String query = "UPDATE whour SET status = ? WHERE doctor_id = ? AND wdate = ?";
 
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, "p");
-			preparedStatement.setInt(2, doctor_id);
+			preparedStatement.setInt(2, doctorId);
 			preparedStatement.setString(3, wdate);
 			preparedStatement.executeUpdate();
 			key = 1;
