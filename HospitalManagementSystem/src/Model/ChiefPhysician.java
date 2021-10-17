@@ -41,12 +41,12 @@ public class ChiefPhysician extends User {
 	}
 	
 	
-	public ArrayList<User> getClinicDoctorList(int clinic_id) throws SQLException{
+	public ArrayList<User> getClinicDoctorList(int clinicId) throws SQLException{
 		ArrayList<User> list = new ArrayList<>();
 		User obj;
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT u.id,u.idno,u.password,u.name,u.type FROM worker w LEFT JOIN user u ON w.user_id = u.id WHERE clinic_id = " + clinic_id);
+			rs = st.executeQuery("SELECT u.id,u.idno,u.password,u.name,u.type FROM worker w LEFT JOIN user u ON w.user_id = u.id WHERE clinic_id = " + clinicId);
 			while(rs.next()) {
 				obj = new User(rs.getInt("u.id"), rs.getString("u.idno"), rs.getString("u.password"), rs.getString("u.name"), 
 						rs.getString("u.type"));
@@ -137,21 +137,21 @@ public class ChiefPhysician extends User {
 	}
 	
 	
-	public boolean addWorker(int user_id, int clinic_id) throws SQLException {
+	public boolean addWorker(int userId, int clinicId) throws SQLException {
 		
 		String query = "INSERT INTO worker" + "(user_id, clinic_id) VALUES" + "(?,?)";
 		boolean key = false;
 		int count = 0;
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM worker WHERE clinic_id=" +clinic_id+ " AND user_id=" + user_id);
+			rs = st.executeQuery("SELECT * FROM worker WHERE clinic_id=" +clinicId+ " AND user_id=" + userId);
 			while(rs.next()) {
 				count++;
 			}
 			if(count == 0) {
 				preparedStatement = con.prepareStatement(query);
-				preparedStatement.setInt(1, user_id);
-				preparedStatement.setInt(2, clinic_id);
+				preparedStatement.setInt(1, userId);
+				preparedStatement.setInt(2, clinicId);
 				preparedStatement.executeUpdate();
 			}
 			key = true;
